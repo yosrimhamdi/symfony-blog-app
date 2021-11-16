@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %} {% block body %}
 <h1>Creation d'un article</h1>
 <form method="POST">
-  <input type="text" name="title" value="Article title" />
+  <input type="text" name="name" value="Article title" />
   <input type="text" name="description" value="Article description" />
-  <input type="text" name="iamgeURL" value="http://placehold.it/350x250" />
+  <input type="text" name="imageURL" value="http://placehold.it/350x250" />
   <button type="submit">Submit</button>
 </form>
 {% endblock %}
