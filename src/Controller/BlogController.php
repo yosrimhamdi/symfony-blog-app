@@ -26,9 +26,7 @@ class BlogController extends AbstractController {
     $article = new Article();
 
     $form = $this->createFormBuilder($article)
-      ->add('name', TextType::class, [
-        'attr' => ['placeholder' => 'description'],
-      ])
+      ->add('name')
       ->add('description')
       ->add('imageURL')
       ->getForm();

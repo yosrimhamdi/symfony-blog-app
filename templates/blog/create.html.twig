@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %} {% block body %}
 <h1>Creation d'un article</h1>
 {{ form_start(formArticle) }}
-<div>
-  <label>This is the Name</label>
-  {{ form_widget(formArticle.name) }}
-</div>
+{{ form_widget(formArticle.name, { attr: { placeholder: 'here' } }) }}
+{{ form_widget(formArticle.description) }}
+{{ form_widget(formArticle.imageURL) }}
+<button type="submit">Add</button>
 {{ form_end(formArticle) }}
 {% endblock %}
