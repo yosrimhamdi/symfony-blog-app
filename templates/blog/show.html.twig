@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %} {% block title %}All Articles{% endblock %} {%
-block body %} {% for article in articles %}
+block body %}
 <div>
   <h2>{{ article.name }}</h2>
   <p>{{ article.description }}</p>
   <div>created at {{ article.createdAt | date('Y/m/d') }}</div>
-  <a href="{{ path('blog_show', { id: article.id }) }}">Read more</a>
 </div>
-<hr />
-{% endfor %} {% endblock %}
+{% endblock %}
