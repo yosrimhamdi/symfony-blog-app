@@ -7,9 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "npm-run-all -p server auto-reload",
+    "start": "npm-run-all -p server bs",
     "server": "php bin/console server:run",
-    "auto-reload": "node bs.js"
+    "bs": "node bs.js"
   },
   "repository": {
     "type": "git",
