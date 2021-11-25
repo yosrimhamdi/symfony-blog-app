@@ -2,9 +2,9 @@
 {% block body %}
   <h1>Creation d'un article</h1>
   {{ form_start(formArticle) }}
-  {{form_widget(formArticle.name, { 'attr': { 'placeholder': 'name' } })}}
-  {{form_widget(formArticle.description, { 'attr': { 'placeholder': 'description' }}) }}
-  {{form_widget(formArticle.imageURL, { 'attr': { 'placeholder': 'image' }})}}
+  {{form_row(formArticle.name, { 'attr': { 'placeholder': 'name' } })}}
+  {{form_row(formArticle.description, { 'attr': { 'placeholder': 'description' }}) }}
+  {{form_row(formArticle.imageURL, { 'attr': { 'placeholder': 'image' }})}}
   <button type="submit">
     {% if isEditMode %}
       Edit article
