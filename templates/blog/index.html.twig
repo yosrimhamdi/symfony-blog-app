@@ -8,10 +8,6 @@
 {% block body %}
   <div class="cards-container">
       {% for article in articles %}
-        {# <div>
-          <div>created at {{ article.createdAt | date('Y/m/d') }}</div>
-        </div>
-        <hr /> #}
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{ article.imageURL }}" alt="Card image cap">
           <div class="card-body">
