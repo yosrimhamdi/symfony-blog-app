@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
   <h1>Creation d'un article</h1>
+  {% form_theme form 'bootstrap_4_layout.html.twig' %}
   {{form_start(form) }}
   {{form_row(form.name, { 'attr': { 'placeholder': 'name' } })}}
   {{form_row(form.description, { 'attr': { 'placeholder': 'description' }}) }}
