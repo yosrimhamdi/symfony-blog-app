@@ -19,12 +19,13 @@ class Article {
 
   /**
    * @ORM\Column(type="string", length=255)
-   * @Assert\Length(min=10, max=255)
+   * @Assert\Length(max=255)
    */
   private $name;
 
   /**
    * @ORM\Column(type="string", length=255)
+   * @Assert\Url()
    */
   private $imageURL;
 
