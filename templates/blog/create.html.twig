@@ -5,6 +5,6 @@
   {{form_widget(formArticle.name, { 'attr': { 'placeholder': 'name' } })}}
   {{form_widget(formArticle.description, { 'attr': { 'placeholder': 'description' }}) }}
   {{form_widget(formArticle.imageURL, { 'attr': { 'placeholder': 'image' }})}}
-  <button type="submit">Add</button>
+  <button type="submit">{{ isEditMode ? 'Edit article': 'Create new article' }}</button>
   {{ form_end(formArticle) }}
 {% endblock %}
