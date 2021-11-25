@@ -1,19 +1,10 @@
-{% extends 'base.html.twig' %} {% block body %}
-<h1>Creation d'un article</h1>
-{{ form_start(formArticle) }}
-{{
-  form_widget(formArticle.name, { 'attr': { 'value': 'randmon article name' } })
-}}
-{{
-  form_widget(formArticle.description, {
-    'attr': { 'value': 'random description' }
-  })
-}}
-{{
-  form_widget(formArticle.imageURL, {
-    attr: { value: 'https://placehold.it/350&150' }
-  })
-}}
-<button type="submit">Add</button>
-{{ form_end(formArticle) }}
+{% extends 'base.html.twig' %}
+{% block body %}
+  <h1>Creation d'un article</h1>
+  {{ form_start(formArticle) }}
+  {{form_widget(formArticle.name, { 'attr': { 'value': 'randmon article name' } })}}
+  {{form_widget(formArticle.description, { 'attr': { 'value': 'random description' }}) }}
+  {{form_widget(formArticle.imageURL, { 'attr': { 'value': 'https://placehold.it/350&150' }})}}
+  <button type="submit">Add</button>
+  {{ form_end(formArticle) }}
 {% endblock %}
