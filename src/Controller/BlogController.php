@@ -24,7 +24,7 @@ class BlogController extends AbstractController {
    * @Route("/blog/new", name="blog_new")
    * @Route("/blog/{id}/edit", name="blog_edit")
    */
-  public function create(
+  public function form(
     Article $article = null,
     Request $request,
     EntityManagerInterface $manager
