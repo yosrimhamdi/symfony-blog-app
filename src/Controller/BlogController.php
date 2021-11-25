@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,11 +34,7 @@ class BlogController extends AbstractController {
       $article = new Article();
     }
 
-    $form = $this->createFormBuilder($article)
-      ->add('name')
-      ->add('description')
-      ->add('imageURL')
-      ->getForm();
+    $form = $this->createForm(ArticleType::class, $article);
 
     $form->handleRequest($request);
 

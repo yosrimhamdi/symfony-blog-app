@@ -4,6 +4,7 @@
   {% form_theme form 'bootstrap_4_layout.html.twig' %}
   {{form_start(form) }}
   {{form_row(form.name, { 'attr': { 'placeholder': 'name' } })}}
+  {{ form_row(form.category) }}
   {{form_row(form.description, { 'attr': { 'placeholder': 'description' }}) }}
   {{form_row(form.imageURL, { 'attr': { 'placeholder': 'image' }})}}
   <button type="submit"  class="btn btn-success">
