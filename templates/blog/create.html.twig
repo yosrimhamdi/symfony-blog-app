@@ -2,8 +2,7 @@
 {% block body %}
   <h1>Creation d'un article</h1>
   {{form_start(form) }}
-  {{form_errors(form.name)}}
-  {{form_widget(form.name, { 'attr': { 'placeholder': 'name' } })}}
+  {{form_row(form.name, { 'attr': { 'placeholder': 'name' } })}}
   {{form_row(form.description, { 'attr': { 'placeholder': 'description' }}) }}
   {{form_row(form.imageURL, { 'attr': { 'placeholder': 'image' }})}}
   <button type="submit">
