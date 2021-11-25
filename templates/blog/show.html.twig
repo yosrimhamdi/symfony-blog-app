@@ -1,8 +1,10 @@
-{% extends 'base.html.twig' %} {% block title %}All Articles{% endblock %} {%
-block body %}
-<div>
-  <h2>{{ article.name }}</h2>
-  <p>{{ article.description }}</p>
-  <div>created at {{ article.createdAt | date('Y/m/d') }}</div>
-</div>
+{% extends 'base.html.twig' %}
+
+{% block title %}All Articles{% endblock %} 
+{% block body %}
+  <div>
+    <h2>{{ article.name }}</h2>
+    <p>{{ article.description }}</p>
+    <div>created at {{ article.createdAt | date('Y/m/d') }}</div>
+  </div>
 {% endblock %}
