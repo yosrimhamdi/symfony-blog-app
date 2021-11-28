@@ -16,9 +16,14 @@ security:
     main:
       anonymous: lazy
       provider: in_database
+
       form_login:
         login_path: security_login
         check_path: security_login
+
+      logout:
+        path: security_logout
+        target: security_login
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#firewalls-authentication
