@@ -33,6 +33,8 @@ class User {
    */
   private $password;
 
+  public $password_confirm;
+
   public function getId(): ?int {
     return $this->id;
   }

@@ -17,6 +17,7 @@ class RegisterType extends AbstractType {
       ->add('email')
       ->add('username')
       ->add('password')
+      ->add('password_confirm')
       ->add('register', SubmitType::class);
   }
 
