@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class BlogController extends AbstractController {
   /**
@@ -58,7 +61,33 @@ class BlogController extends AbstractController {
   /**
    * @Route("/blog/{id}", name="blog_show")
    */
-  public function show(Article $article) {
-    return $this->render('blog/show.html.twig', compact('article'));
+  public function show(
+    Article $article,
+    Request $request,
+    EntityManagerInterface $manager,
+    UserInterface $user = null
+  ) {
+    $comment = new Comment();
+
+    $form = $this->createForm(CommentType::class, $comment);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid() && $user) {
+      $comment->setCreatedAt(new \DateTime());
+      $comment->setArticle($article);
+      $comment->setAuthor($user->getUsername());
+
+      $manager->persist($comment);
+      $manager->flush();
+
+      return $this->redirectToRoute('blog_show', [
+        'id' => $article->getId(),
+      ]);
+    }
+
+    return $this->render('blog/show.html.twig', [
+      'commentForm' => $form->createView(),
+      'article' => $article,
+    ]);
   }
 }

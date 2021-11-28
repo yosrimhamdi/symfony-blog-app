@@ -15,6 +15,16 @@
       <p class="card-text">{{ article.description }}</p>
     </div>
   </div>
+  {% if app.user %}
+    {{ form_start(commentForm) }}
+    {{ form_row(commentForm.content, { 'label': 'Create a new comment' }) }}
+    <button type="submit" class="btn btn-success">Create Comment</button>
+    {{ form_end(commentForm) }}
+  {% else %}
+    <h3>Please login to write a comment</h3>     
+    <a href="{{ path('security_login') }}" class="btn btn-primary">Login</a>
+  {% endif %}
+  <h2>{{ article.comments | length }} Comment(s)</h2>
   <div class="mb-5">
     {% for comment in article.comments %}
       <div class="card p-3 mb-2">
