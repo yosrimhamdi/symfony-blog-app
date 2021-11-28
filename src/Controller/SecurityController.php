@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\LoginType;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,6 +35,17 @@ class SecurityController extends AbstractController {
     }
 
     return $this->render('security/register.html.twig', [
+      'form' => $form->createView(),
+    ]);
+  }
+
+  /**
+   * @Route("/login", name="security_login")
+   */
+  public function login() {
+    $form = $this->createForm(LoginType::class);
+
+    return $this->render('security/login.html.twig', [
       'form' => $form->createView(),
     ]);
   }
