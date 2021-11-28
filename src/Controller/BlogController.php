@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class BlogController extends AbstractController {
   /**
@@ -64,10 +63,11 @@ class BlogController extends AbstractController {
   public function show(
     Article $article,
     Request $request,
-    EntityManagerInterface $manager,
-    UserInterface $user = null
+    EntityManagerInterface $manager
   ) {
     $comment = new Comment();
+
+    $user = $this->getUser();
 
     $form = $this->createForm(CommentType::class, $comment);
     $form->handleRequest($request);
@@ -75,7 +75,7 @@ class BlogController extends AbstractController {
     if ($form->isSubmitted() && $form->isValid() && $user) {
       $comment->setCreatedAt(new \DateTime());
       $comment->setArticle($article);
-      $comment->setAuthor($user->getUsername());
+      $comment->setAuthor($user);
 
       $manager->persist($comment);
       $manager->flush();
