@@ -3,10 +3,11 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Faker\Provider\ar_JO\Text;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegisterType extends AbstractType {
   public function buildForm(
@@ -14,11 +15,10 @@ class RegisterType extends AbstractType {
     array $options
   ): void {
     $builder
-      ->add('email')
       ->add('username')
-      ->add('password')
-      ->add('password_confirm')
-      ->add('register', SubmitType::class);
+      ->add('email')
+      ->add('password', PasswordType::class)
+      ->add('password_confirm', PasswordType::class);
   }
 
   public function configureOptions(OptionsResolver $resolver): void {

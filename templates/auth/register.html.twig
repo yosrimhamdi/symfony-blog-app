@@ -3,6 +3,17 @@
 {% block title %}Register!{% endblock %}
 
 {% block body %}
+    <h1>Register for a free account!</h1>
+
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_row(form.username, {'attr': { 'placeholder': 'Username' } }) }}
+    {{ form_row(form.email, { 'attr': { 'placeholder': 'Email' } }) }}
+    {{ form_row(form.password, { 'attr': { 'placeholder': 'Password' } }) }}
+    {{ form_row(form.password_confirm, {
+        'label': 'Repeat password',
+        'attr': { 'placeholder': 'Confirm your password' }
+    }) }}
+    <button type="submit" class="btn btn-primary">Register</button>
+    {{ form_end(form) }}
 {% endblock %}
