@@ -30,9 +30,13 @@ class User {
 
   /**
    * @ORM\Column(type="string", length=255)
+   * @Assert\Length(min="6")
    */
   private $password;
 
+  /**
+   * @Assert\EqualTo(propertyPath="password", message="Password don't match")
+   */
   public $password_confirm;
 
   public function getId(): ?int {
